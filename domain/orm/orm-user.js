@@ -20,14 +20,16 @@ exports.GetById = async ( Id ) =>{
     }
 }
 
-exports.Store = async ( Name, LastName, Age ) =>{
+exports.Store = async ( Name, LastName, Age, Pseudo, Mail, Password ) =>{
     try{
         const datacenter = await new conn.db.connMongo.User({
             userId: uuid(),
             name: Name,
             lastName: LastName,
             age: Age,
-            IsDelete: false
+            pseudo: Pseudo,
+            mail: Mail, 
+            password: Password
         });
         datacenter.save();
         return true
