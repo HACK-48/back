@@ -2,8 +2,8 @@
 
 const   express     = require('express'),
         router      = express.Router(),
-        magic       = require('../util/magic'),
         users       = require('../domain/services/service-user');
+const magic = require("../util/magic");
 
 console.log('[[ USERS ]]'); 
 magic.LogInfo('[GET] = /users/')
