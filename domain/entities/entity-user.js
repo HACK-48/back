@@ -1,4 +1,5 @@
 "use strict";
+global.crypto = require('crypto');
 
 module.exports = (db) => {
   var userSchema = new db.Schema(

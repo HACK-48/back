@@ -7,7 +7,7 @@ exports.GetAll = async () =>{
         return await conn.db.connMongo.User.find({IsDelete: false});
     }catch(err){
         console.log(" err orm-user.GetAll = ", err);
-        return await {err:{code: 123, messsage: err}}
+        return await {err:{code: 500, messsage: err}}
     }
 }
 
@@ -16,7 +16,7 @@ exports.GetById = async ( Id ) =>{
         return await conn.db.connMongo.User.findOne({ userId: Id, IsDelete: false });
     }catch(err){
         console.log(" err orm-user.GetById = ", err);
-        return await {err:{code: 123, messsage: err}}
+        return await {err:{code: 500, messsage: err}}
     }
 }
 
@@ -35,7 +35,7 @@ exports.Store = async ( Name, LastName, Age, Pseudo, Mail, Password ) =>{
         return true
     }catch(err){
         console.log(" err orm-user.Store = ", err);
-        return await {err:{code: 123, messsage: err}}
+        return await {err:{code: 500, messsage: err}}
     }
 }
 
@@ -45,7 +45,7 @@ exports.DeleteById = async ( Id ) =>{
         return true
     }catch(err){
         console.log(" err orm-user.Store = ", err);
-        return await {err:{code: 123, messsage: err}}
+        return await {err:{code: 500, messsage: err}}
     }
 }
 
@@ -62,6 +62,15 @@ exports.UpdateById = async ( Name, LastName, Age, Id ) =>{
         return true
     }catch(err){
         console.log(" err orm-user.Store = ", err);
-        return await {err:{code: 123, messsage: err}}
+        return await {err:{code: 500, messsage: err}}
+    }
+}
+
+exports.GetByMail = async ( Mail ) =>{
+    try{
+        return await conn.db.connMongo.User.findOne({ mail: Mail });
+    }catch(err){
+        console.log(" err orm-user.GetByMail = ", err);
+        return await {err:{code: 500, messsage: err}}
     }
 }
