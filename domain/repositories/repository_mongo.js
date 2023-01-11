@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const enum_ = require('../../util/magic');
 const user = require('../entities/entity-user');
 
-mongoose.set('useFindAndModify', false);
-
 let arrayConns = [], db = {};
 
 if (config.db.mongodb && config.db.mongodb.length > 0) {
@@ -12,7 +10,7 @@ if (config.db.mongodb && config.db.mongodb.length > 0) {
         mongoose.connect(`mongodb://${c.host}/${c.database}`, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            poolSize: 10 
+            maxPoolSize: 10 
           });
         db[c.nameconn] = {}
         db[c.nameconn].conn = mongoose;
@@ -20,5 +18,5 @@ if (config.db.mongodb && config.db.mongodb.length > 0) {
     })
     exports.db = db;
 }else{
-    enum_.LogDanger("No hay ninguna base de datos vinculada")
+    enum_.LogDanger("Erreur lors de la connexion à la db")
 }

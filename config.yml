@@ -4,8 +4,6 @@ db:
         -   enabled: true
             host: localhost
             port: 27017
-            username: test
-            password: 123456
-            database: demo
+            database: Hack48
             nameconn: connMongo
-            lang: ES
+            lang: FR
