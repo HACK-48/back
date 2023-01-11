@@ -5,7 +5,7 @@ const   express     = require('express'),
         users       = require('../domain/services/service-user');
 const magic = require("../util/magic");
 
-console.log('[[ USERS ]]'); 
+magic.LogInfo('[[ USERS ]]'); 
 magic.LogInfo('[GET] = /users/')
 magic.LogInfo('[GET] = /users/:id')
 magic.LogSuccess('[POST] = /users/')
