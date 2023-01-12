@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  database:
+    image: mongo:4.2.3
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    networks:
+      - hack48
+  api:
+    image: warydra/hack48_api:latest
+    container_name: hack48_api
+    restart: always
+    ports:
+     - "8080:8080"
+    networks:
+      - hack48
+
+networks:
+  hack48:
