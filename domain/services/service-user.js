@@ -2,10 +2,17 @@ const magic = require('../../util/magic');
 const enum_ = require('../../util/enum');
 const ormUser = require('../orm/orm-user');
 const { isUuid } = require('uuidv4');
+const m = require('../../util/middlewares/auth.middleware');
+const jwt = require('jsonwebtoken');
 
 
 exports.GetAll = async (req, res) =>{
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
+    // Récupération du token
+    const token = req.headers.authorization && m.extractBearerToken(req.headers.authorization);
+    // Décodage du token
+    const decoded = jwt.decode(token, { complete: false });
+    console.log(decoded);
     try{
         respOrm = await ormUser.GetAll();
         if(respOrm.err){
