@@ -20,7 +20,7 @@ exports.Login = async (req, res) => {
 
             if (user.validPassword(req.body.password)) {
                 return res.status(201).send({
-                    message: "Connexion réussie."
+                    message: `Connexion réussie. token: ${token}`
                 });
             } else {
                 return res.status(400).send({

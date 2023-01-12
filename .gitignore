@@ -1,6 +1,6 @@
 node_modules/
 jspm_packages/
-
+DockerConf/
 .env
 
 .idea/
