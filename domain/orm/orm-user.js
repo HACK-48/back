@@ -41,7 +41,7 @@ exports.Store = async ( Name, LastName, Age, Pseudo, Mail, Password ) =>{
 
 exports.DeleteById = async ( Id ) =>{
     try{
-        await conn.db.connMongo.User.findOneAndUpdate({userId: Id}, { IsDelete: true })
+        await conn.db.connMongo.User.deleteById({userId: Id})
         return true
     }catch(err){
         console.log(" err orm-user.Store = ", err);
