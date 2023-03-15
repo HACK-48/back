@@ -85,9 +85,10 @@ exports.Create = async (req, res) => {
     const name = req.body.name;
     const description = req.body.description;
     const leaderId = req.body.leaderId;
+    const sector = req.body.sector;
 
-    if (name && description && leaderId) {
-      respOrm = await ormTeams.Create(name, description, leaderId);
+    if (name && description && leaderId && sector) {
+      respOrm = await ormTeams.Create(name, description, leaderId, sector);
       if (respOrm.err) {
         (status = "Failure"),
           (errorCode = respOrm.err.code),
