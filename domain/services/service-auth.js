@@ -2,6 +2,8 @@ const magic = require('../../util/magic');
 const enum_ = require('../../util/enum');
 const ormUser = require('../orm/orm-user');
 const jwt = require('jsonwebtoken');
+require('../entities/entity-user');
+const conn = require("../repositories/repository_mongo");
 
 const SECRET = 'f3eQRLjWCn6iCG4QukU6IjCTYGot3IFw+nJB01b/128=';
 
@@ -32,8 +34,8 @@ exports.Login = async (req, res) => {
 
 }
 
-exports.Register = (req, res, next) => {
-    let user = new User();
+exports.Register = async (req, res, next) => {
+    let user = new conn.db.connMongo.User();
 
     user.name = req.body.name,
     user.lastName = req.body.lastName,
