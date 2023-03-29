@@ -1,8 +1,8 @@
 'use strict';
-const   config = require('config-yml'),
-        server = require('./server');
+const config = require('config-yml'),
+    server = require('./server');
 
-server.listen(config.port);
+server.listen(process.env.PORT);
 console.log('Serveur ecoute sur le port ' + config.port);
 
 server.on('error', err => {
