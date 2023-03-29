@@ -10,14 +10,10 @@ let arrayConns = [], db = {};
 
 if (config.db.mongodb && config.db.mongodb.length > 0) {
     config.db.mongodb.map((c) => {
-        mongoose.connect(`mongodb://haka47:Azerty0*@3f81311a-3a79-404d-8bb0-782a883b7837.hack48-5288.mongo.a.osc-fr1.scalingo-dbs.com:32380/hack48-5288?replicaSet=hack48-5288-rs0&ssl=true`, {
+        mongoose.connect(`mongodb://${c.host}/${c.database}`, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             maxPoolSize: 10
-        }).then(() => {
-            console.log('Connected to MongoDB');
-        }).catch((err) => {
-            console.error('Error connecting to MongoDB', err);
         });
         db[c.nameconn] = {}
         db[c.nameconn].conn = mongoose;
