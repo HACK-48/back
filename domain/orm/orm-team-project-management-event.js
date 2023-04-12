@@ -51,7 +51,8 @@ exports.Send = async (projectManagementEventId, teamReceiverId) => {
 exports.GetAllByTeamId = async (teamId) => {
     try {
         console.log(teamId)
-        return await conn.db.connMongo.TeamProjectManagementEvent.find({teamId: teamId});
+        return await conn.db.connMongo.TeamProjectManagementEvent.find({teamId: teamId})
+          .populate('projectManagementEventId');
       } catch (err) {
         console.log(" err orm-team-project-management-event.GetAllByTeamId = ", err);
         return { err: { code: 500, messsage: err } };
