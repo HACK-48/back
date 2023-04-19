@@ -8,7 +8,7 @@ const conn = require("../repositories/repository_mongo");
 const SECRET = 'f3eQRLjWCn6iCG4QukU6IjCTYGot3IFw+nJB01b/128=';
 
 exports.Login = async (req, res) => {
-    await ormUser.GetByMail(req.body.Mail).then((user) => {
+    await ormUser.GetByMail(req.body.mail).then((user) => {
         if (user === null) {
             return res.status(400).send({
                 message: "Utilisateur introuvable."
@@ -22,10 +22,12 @@ exports.Login = async (req, res) => {
 
             if (user.validPassword(req.body.password)) {
                 return res.status(201).send({
-                    message: `Connexion réussie. token: ${token}`
+                    token: token,
+                    message: `Connexion réussie.`
                 });
             } else {
                 return res.status(400).send({
+                    token: '',
                     message: "Le mail ou le mot de passe est invalide."
                 });
             }
@@ -37,7 +39,7 @@ exports.Login = async (req, res) => {
 exports.Register = async (req, res, next) => {
     let user = new conn.db.connMongo.User();
 
-    user.name = req.body.name,
+    user.name = req.body.firstname,
     user.lastName = req.body.lastName,
     user.pseudo = req.body.pseudo,
     user.mail = req.body.mail,
@@ -46,15 +48,14 @@ exports.Register = async (req, res, next) => {
     user.setPassword(req.body.password);
 
     user.save((err, User) => {
-        if (err) {
-            return res.status(400).send({
-                message: "Ajout d'un utilisateur échoué."
-            });
-        }
-        else {
-            return res.status(201).send({
-                message: "Utilisateur ajouté avec succès."
-            })
-        }
+      if (err) {
+        return res.status(400).send({
+          message: "Ajout d'un utilisateur échoué.",
+        });
+      }
+      
+      return res.status(201).send({
+        message: "Utilisateur ajouté avec succès.",
+      });
     });
 }
