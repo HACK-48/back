@@ -25,6 +25,10 @@ module.exports = (db) => {
         type: String,
         required: true
       },
+      sector: {
+        type: Number,
+        required: true
+      },
       age: Number,
       hash : String, 
       salt : String 

@@ -65,9 +65,10 @@ exports.Store = async (req, res) =>{
         const Mail = req.body.Mail;
         const Password = req.body.Password;
         const Age = req.body.Age;
+        const Sector = req.body.Sector;
 
-        if( Name && LastName && Mail && Password && Pseudo ){
-            respOrm = await ormUser.Store( Name, LastName, Age, Pseudo, Mail, Password );
+        if( Name && LastName && Mail && Password && Pseudo && Sector){
+            respOrm = await ormUser.Store( Name, LastName, Age, Pseudo, Mail, Password, Sector );
             if(respOrm.err){
                 status = 'Failure', errorCode = respOrm.err.code, message = respOrm.err.messsage, statusCode = enum_.CODE_BAD_REQUEST;
             }else{
