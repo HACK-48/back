@@ -7,7 +7,9 @@ const helmet 		= require('helmet');
 const cors          = require('cors');
 
 server.use(helmet());
-server.use(cors());
+server.use(cors({
+    origin: '*',
+}));
 
 // parse application/x-www-form-urlencoded 
 server.use(bodyParser.urlencoded({ extended: false, limit: '50mb' }));
