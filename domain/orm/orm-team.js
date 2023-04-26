@@ -19,14 +19,13 @@ exports.GetById = async (Id) => {
   }
 };
 
-exports.Create = async (name, description, leaderId, sector) => {
+exports.Create = async (name, description, leaderId) => {
   try {
     const datacenter = await new conn.db.connMongo.Team({
       teamId: uuid(),
       name: name,
       description: description,
-      leaderId: leaderId,
-      sector: sector
+      leaderId: leaderId
     });
     datacenter.save();
     return true;

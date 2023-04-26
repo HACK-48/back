@@ -7,7 +7,7 @@ const helmet 		= require('helmet');
 const cors          = require('cors');
 
 const allowCrossDomain = (req, res, next) => {
-  res.header(`Access-Control-Allow-Origin`, `hack48-api.osc-fr1.scalingo.io`);
+  res.header(`Access-Control-Allow-Origin`, `https://hack48-api.osc-fr1.scalingo.io`);
   res.header(`Access-Control-Allow-Methods`, `GET,PUT,POST,DELETE`);
   res.header(`Access-Control-Allow-Headers`, `Content-Type`);
   next();

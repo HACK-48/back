@@ -13,11 +13,7 @@ module.exports = (db) => {
         required: true
       },
       membersId: Array,
-      description: String,
-      sector: {
-        type: Number,
-        required: true
-      }
+      description: String
     },
     {
       timestamps: {
