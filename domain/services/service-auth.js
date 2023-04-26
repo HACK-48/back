@@ -44,13 +44,14 @@ exports.Register = async (req, res, next) => {
     user.pseudo = req.body.pseudo,
     user.mail = req.body.mail,
     user.password = req.body.password
+    user.sector = req.body.sector;
 
     user.setPassword(req.body.password);
 
     user.save((err, User) => {
       if (err) {
         return res.status(400).send({
-          message: "Ajout d'un utilisateur échoué.",
+          message: `Ajout d'un utilisateur échoué. ${err.message}`,
         });
       }
       
