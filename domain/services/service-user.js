@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 
 
 exports.GetAll = async (req, res) =>{
+    res.header("Access-Control-Allow-Origin", "*");
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
     // Récupération du token
     const token = req.headers.authorization && m.extractBearerToken(req.headers.authorization);
@@ -30,6 +31,7 @@ exports.GetAll = async (req, res) =>{
 }
 
 exports.GetById = async (req, res) =>{
+    res.header("Access-Control-Allow-Origin", "*");
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
     try{
         const id = req.params.id;
@@ -57,6 +59,7 @@ exports.GetById = async (req, res) =>{
 
 
 exports.Store = async (req, res) =>{
+    res.header("Access-Control-Allow-Origin", "*");
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
     try{
         const Name = req.body.Name;
@@ -86,6 +89,7 @@ exports.Store = async (req, res) =>{
 }
 
 exports.UpdateById = async (req, res) =>{
+    res.header("Access-Control-Allow-Origin", "*");
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
     try{
         const id = req.params.id;
@@ -114,6 +118,7 @@ exports.UpdateById = async (req, res) =>{
     }
 }
 exports.DeleteById = async (req, res) =>{
+    res.header("Access-Control-Allow-Origin", "*");
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
     try{
         const id = req.params.id;

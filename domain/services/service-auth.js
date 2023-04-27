@@ -8,6 +8,7 @@ const conn = require("../repositories/repository_mongo");
 const SECRET = 'f3eQRLjWCn6iCG4QukU6IjCTYGot3IFw+nJB01b/128=';
 
 exports.Login = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     await ormUser.GetByMail(req.body.mail).then((user) => {
         if (user === null) {
             return res.status(400).send({
@@ -37,6 +38,7 @@ exports.Login = async (req, res) => {
 }
 
 exports.Register = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
     let user = new conn.db.connMongo.User();
 
     user.name = req.body.firstname,
@@ -51,7 +53,8 @@ exports.Register = async (req, res, next) => {
     user.save((err, User) => {
       if (err) {
         return res.status(400).send({
-          message: `Ajout d'un utilisateur échoué. ${err.message}`,
+          message: `Ajout d'un utilisateur échoué.`,
+          error: err.message
         });
       }
       
