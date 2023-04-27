@@ -3,6 +3,7 @@ const enum_ = require('../../util/enum');
 const ormTeamProjectManagementEvent = require('../orm/orm-team-project-management-event');
 
 exports.GetAll = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
 
     try {
@@ -22,6 +23,7 @@ exports.GetAll = async (req, res) => {
 }
 
 exports.GetAllByTeamId = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
 
     try {
@@ -42,6 +44,7 @@ exports.GetAllByTeamId = async (req, res) => {
 }
 
 exports.Create = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
 
     try {
@@ -68,6 +71,7 @@ exports.Create = async (req, res) => {
 }
 
 exports.Send = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
     try {
         const teamReceiverId = req.params.teamId;

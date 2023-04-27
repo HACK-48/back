@@ -4,6 +4,7 @@ const { isUuid } = require("uuidv4");
 const enum_ = require("../../util/enum");
 
 exports.GetAll = async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   let status = "Success",
     errorCode = "",
     message = "",
@@ -34,6 +35,7 @@ exports.GetAll = async (req, res) => {
 };
 
 exports.GetById = async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   let status = "Success",
     errorCode = "",
     message = "",
@@ -74,6 +76,7 @@ exports.GetById = async (req, res) => {
 };
 
 exports.Create = async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   let status = "Success",
     errorCode = "",
     message = "",
@@ -115,6 +118,7 @@ exports.Create = async (req, res) => {
 };
 
 exports.UpdateById = async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   let status = "Success",
     errorCode = "",
     message = "",
@@ -154,6 +158,7 @@ exports.UpdateById = async (req, res) => {
 };
 
 exports.DeleteById = async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   let status = "Success",
     errorCode = "",
     message = "",
@@ -189,6 +194,7 @@ exports.DeleteById = async (req, res) => {
 };
 
 exports.AddUserById = async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   let status = "Success",
     errorCode = "",
     message = "",

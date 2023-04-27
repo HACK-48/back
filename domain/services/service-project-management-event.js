@@ -3,6 +3,7 @@ magic = require("../../util/magic");
 const enum_ = require('../../util/enum');
 
 exports.GetAll = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
 
     try {
@@ -22,6 +23,7 @@ exports.GetAll = async (req, res) => {
 }
 
 exports.GetAllMalus = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
 
     try {
@@ -41,6 +43,7 @@ exports.GetAllMalus = async (req, res) => {
 }
 
 exports.GetAllBonus = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
 
     try {
@@ -60,6 +63,7 @@ exports.GetAllBonus = async (req, res) => {
 }
 
 exports.Create = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     let status = 'Success', errorCode ='', message='', data='', statusCode=0, resp={};
 
     try {
